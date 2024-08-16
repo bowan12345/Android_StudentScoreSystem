@@ -1,5 +1,8 @@
 package com.em.edumanager.bean;
 
+/**
+ * student bean
+ */
 public class StudentInfo {
     private int id;
     private String studentID;

@@ -1,5 +1,8 @@
 package com.em.edumanager.bean;
 
+/**
+ * score bean
+ */
 public class StudentScore {
     private int id;
     private String studentId;
