@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="majorName">
+        <item>Computer Applications</item>
+        <item>Computer Networks</item>
+        <item>Mobile Internet Development</item>
+        <item>Web Front-End Development</item>
+    </string-array>
+</resources>

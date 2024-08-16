@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools" package="com.em.edumanager"
+          android:versionCode="1"
+          android:versionName="1.0" >
+
+    <!-- Add permission to make phone calls -->
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Add permission to send SMS messages -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <!-- Read phone status and identity -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Have full network access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Read phone status and identity -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Modify or delete the contents of your USB storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- View network connections -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" >
+        <activity
+                android:name="com.em.edumanager.LoginActivity"
+                android:label="@string/app_name" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.em.edumanager.RegisterActivity"
+                android:label="@string/str_title_register" >
+        </activity>
+        <activity
+                android:name="com.em.edumanager.MainActivity"
+                android:label="@string/title_activity_Main" >
+        </activity>
+
+    </application>
+
+</manifest>
