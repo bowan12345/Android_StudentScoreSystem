@@ -3,11 +3,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg3"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context="com.em.edumanager.RegisterActivity" >
+                android:padding="16dp"
+                tools:context="com.em.edumanager.RegisterActivity">
 
     <TextView
             android:id="@+id/textView1"
@@ -15,9 +12,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="62dp"
+            android:layout_marginTop="30dp"
             android:text="@string/str_title_register"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="#000000" />
 
     <LinearLayout
             android:id="@+id/linearLayoutContainer"
@@ -25,14 +23,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="16dp">
 
         <LinearLayout
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
             <TextView
                     android:id="@+id/firstname"
@@ -42,13 +42,18 @@
                     android:text="@string/first_name"
                     android:gravity="right"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#000000" />
 
             <EditText
                     android:id="@+id/firstnameText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:textColorHint="#888888"
+                    android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,13 +71,18 @@
                     android:text="@string/last_name"
                     android:gravity="right"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#000000" />
 
             <EditText
                     android:id="@+id/lastnameText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:textColorHint="#888888"
+                    android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,13 +100,18 @@
                     android:text="@string/email"
                     android:gravity="right"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#000000" />
 
             <EditText
                     android:id="@+id/emailText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:textColorHint="#888888"
+                    android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -114,13 +129,19 @@
                     android:text="@string/password"
                     android:gravity="right"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#000000" />
 
             <EditText
                     android:id="@+id/passwordText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:textColorHint="#888888"
+                    android:textColor="#000000"
+                    android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,13 +159,19 @@
                     android:text="@string/confirm_password"
                     android:gravity="right"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#000000" />
 
             <EditText
                     android:id="@+id/rePasswordText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:textColorHint="#888888"
+                    android:textColor="#000000"
+                    android:inputType="textPassword" />
         </LinearLayout>
     </LinearLayout>
 
@@ -154,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayoutContainer"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="@string/str_save"
@@ -162,5 +189,5 @@
             android:background="#03DAC5"
             android:textColor="@color/black"
             android:padding="15dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 </RelativeLayout>

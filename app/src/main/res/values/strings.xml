@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">EDU MANAGER</string>
-
+    <string name="content_desc">Menu Item Icon</string>
     <string name="menu_main_exit">EXIT</string>
     <string name="str_title_register">REGISTER</string>
 
