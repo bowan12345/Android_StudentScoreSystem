@@ -12,12 +12,12 @@
     <string name="title_activity_add_info">ADD STUDENT</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_pass_repair">MODIFY PASSWORD</string>
-    <string name="title_activity_show_student_info">QUERY STUDENT </string>
+    <string name="title_activity_show_student_info">QUERY STUDENT</string>
     <string name="title_activity_maintain_student_info">MAINTAIN STUDENT</string>
     <string name="title_activity_repair_student_info">MODIFY STUDENT</string>
     <string name="title_activity_add_student_score">ADD GRADES</string>
-    <string name="title_activity_show_student_score">QUERY GRADES </string>
-    <string name="title_activity_maintain_student_score"> MAINTAIN GRADES </string>
+    <string name="title_activity_show_student_score">QUERY GRADES</string>
+    <string name="title_activity_maintain_student_score">MAINTAIN GRADES</string>
     <string name="title_activity_repair_student_score">MODIFY GRADES</string>
 
 
@@ -40,5 +40,7 @@
     <string name="query_all_student">QUERY ALL STUDENTS</string>
     <string name="query">Query</string>
     <string name="enter_student_id">Enter Student ID</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

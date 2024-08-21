@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,10 +23,10 @@ public class MainActivity extends Activity {
 	//declare fields
 	GridView gridView;
 	//declare menus
-	String[] title=new String[]{"ADD STUDENT ","MAINTAIN STUDENT","QUERY STUDENT","ADD GRADES","MAINTAIN GRADES ","QUERY GRADES","SYSTEM","HELP GUIDE","EXIT"};
+	String[] title=new String[]{"ADD STUDENT ","MAINTAIN STUDENT","ADD GRADES","MAINTAIN GRADES","SYSTEM","HELP GUIDE","EXIT"};
 	//menu images
-	int[] image=new int[]{R.drawable.addinfo,R.drawable.weihuinfo,R.drawable.showinfo,R.drawable.addscore,
-			R.drawable.weihuscore,R.drawable.showscore,R.drawable.userpass,R.drawable.help,R.drawable.exit};
+	int[] image=new int[]{R.drawable.addinfo,R.drawable.showinfo,R.drawable.addscore,
+			R.drawable.showscore,R.drawable.userpass,R.drawable.help,R.drawable.exit};
 	ArrayList<Map<String,Object>> menuList;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,49 +64,42 @@ public class MainActivity extends Activity {
       		switch(id){
       		case 0:
       			//add student info
-
+				Intent studentInfoIntent=new Intent(this,AddStudentInfoActivity.class);
+				startActivity(studentInfoIntent);
       			break;
       		case 1:
       			//maintain student info
-
+				Intent queryIntent=new Intent(this,ShowStudentInfoActivity.class);
+				startActivity(queryIntent);
       			break;
       		case 2:
-      			//student info query
+				//add student grades
 
       			break;
       		case 3:
-      			//add student grades
+				//maintain student grades
 
       			break;
       		case 4:
-      			//maintain student grades
+				//system management
 
       			break;
       		case 5:
-      			//student grades query
+				//help
+				AlertDialog.Builder builder0=new AlertDialog.Builder(this);
+				builder0.setTitle("User Guide");
+				builder0.setMessage("The software has 7 features: including adding student, " +
+						"maintain student, add grades, " +
+						"maintain grades, maintain password, help guide, and exiting the software");
+				builder0.setPositiveButton("I see", new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
 
-      			break;
+					}
+				});
+				builder0.create().show();
+				break;
       		case 6:
-      			//system management
-
-      			break;
-      		case 7:
-      			//help
-      			AlertDialog.Builder builder0=new AlertDialog.Builder(this);
-  				builder0.setTitle("User Guide");
-  				builder0.setMessage("The software has 9 features: including adding student, " +
-						"maintain student, query student, add grades, " +
-						"maintain grades, query grades, maintain password, help guide, and exiting the software");
-  				builder0.setPositiveButton("I see", new OnClickListener() {
-  					
-  					@Override
-  					public void onClick(DialogInterface arg0, int arg1) {
-
-  					}
-  				});
-  				builder0.create().show();
-  				break;
-      		case 8:
 				//exit
 				ExitAction();
 				break;

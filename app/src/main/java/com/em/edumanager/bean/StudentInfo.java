@@ -3,7 +3,7 @@ package com.em.edumanager.bean;
 /**
  * student bean
  */
-public class StudentInfo {
+public class StudentInfo implements java.io.Serializable {
     private int id;
     private String studentID;
     private String firstname;
@@ -12,6 +12,19 @@ public class StudentInfo {
     private String age;
     private String major;
     private String remark;
+
+	public StudentInfo(String stuID, String firName, String lastName, String age, String gender, String majorName, String remark) {
+		this.studentID = stuID;
+		this.firstname = firName;
+		this.lastname = lastName;
+		this.age = age;
+		this.gender = gender;
+		this.major = majorName;
+		this.remark = remark;
+	}
+
+	public StudentInfo() {
+	}
 
 	public int getId() {
 		return id;
