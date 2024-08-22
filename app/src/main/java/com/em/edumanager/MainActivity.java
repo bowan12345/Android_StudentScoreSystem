@@ -74,15 +74,18 @@ public class MainActivity extends Activity {
       			break;
       		case 2:
 				//add student grades
-
+				Intent addGradeIntent=new Intent(this,AddStudentGradeActivity.class);
+				startActivity(addGradeIntent);
       			break;
       		case 3:
 				//maintain student grades
-
+				Intent maintainGradeIntent=new Intent(this,ShowStudentGradeActivity.class);
+				startActivity(maintainGradeIntent);
       			break;
       		case 4:
 				//system management
-
+				Intent modifyPasswordIntent=new Intent(this,ModifyPasswordActivity.class);
+				startActivity(modifyPasswordIntent);
       			break;
       		case 5:
 				//help

@@ -16,7 +16,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.em.edumanager.bean.UserInfo;
-import com.em.edumanager.dao.CommonData;
+import com.em.edumanager.bean.CommonData;
 import com.em.edumanager.dao.UserDao;
 
 

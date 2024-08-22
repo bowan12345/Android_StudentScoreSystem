@@ -14,7 +14,7 @@
     <string name="title_activity_pass_repair">MODIFY PASSWORD</string>
     <string name="title_activity_show_student_info">QUERY STUDENT</string>
     <string name="title_activity_maintain_student_info">MAINTAIN STUDENT</string>
-    <string name="title_activity_repair_student_info">MODIFY STUDENT</string>
+    
     <string name="title_activity_add_student_score">ADD GRADES</string>
     <string name="title_activity_show_student_score">QUERY GRADES</string>
     <string name="title_activity_maintain_student_score">MAINTAIN GRADES</string>
@@ -23,12 +23,12 @@
 
     <string name="contact_us">GIVE US A CALL</string>
 
-    <string name="student_id">Student ID</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="confirm_password">Confirm</string>
+    <string name="student_id">Student ID: </string>
+    <string name="first_name">First Name: </string>
+    <string name="last_name">Last Name: </string>
+    <string name="email">Email:</string>
+    <string name="password">Password:</string>
+    <string name="confirm_password">Confirm:</string>
     <string name="gender">Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
@@ -38,9 +38,10 @@
 
 
     <string name="query_all_student">QUERY ALL STUDENTS</string>
+    <string name="query_all_grades">QUERY ALL STUDENT GRADES</string>
     <string name="query">Query</string>
     <string name="enter_student_id">Enter Student ID</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="modify_item">MODIFY</string>
+  
 
 </resources>

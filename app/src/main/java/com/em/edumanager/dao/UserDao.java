@@ -80,6 +80,16 @@ public class UserDao {
 		return userLogin;
 	}
 
+
+	/**
+	 * update user password by id
+	 */
+	public long UpdatePassById(int id,String pass){
+		ContentValues values=new ContentValues();
+		values.put(COL5, pass);
+		//create and execute a update SQL
+		return this.st.update(TB_NAME, values, COL1+"=?", new String[]{String.valueOf(id)});
+	}
 }
 
 
