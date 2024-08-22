@@ -63,7 +63,6 @@ public class StudentInfoDao {
 			values.put(COL8, tem.getRemark());
 			//execute
 			long n=this.st.insert(TB_NAME, null, values);
-			this.FreeResource();
 			return n;
 		}
 
@@ -108,7 +107,6 @@ public class StudentInfoDao {
 			}
 			//close and release resources
 			cursor.close();
-			this.FreeResource();
 			return studentInfos;
 		}
 
@@ -152,7 +150,6 @@ public class StudentInfoDao {
 			}
 			//close and release resources
 			cursor.close();
-			this.FreeResource();
 			return studentInfos;
 		}
 		/**
@@ -161,8 +158,6 @@ public class StudentInfoDao {
 		public long DeleteById(String studentID){
 			//create and execute a query SQL
 			long n=this.st.delete(TB_NAME, COL2+"=?", new String[]{studentID});
-			//close and release resources
-			this.FreeResource();
 			return n;
 		}
 		/**
@@ -179,17 +174,10 @@ public class StudentInfoDao {
 			values.put(COL8, student.getRemark());
 			//create and execute a query SQL
 			long n=this.st.update(TB_NAME, values, COL2+"=?", new String[]{  String.valueOf(  student.getStudentID())  });
-			this.FreeResource();
 			return n;
 		}
 
-		/**
-		* close and release resources
-		*/
-		public void FreeResource(){
-			this.st.close();
-			this.myHelper.close();
-		}
+
 		public  static void main(String args[]){
 //			AddStudentInfoDao adao=new AddStudentInfoDao();
 		}
