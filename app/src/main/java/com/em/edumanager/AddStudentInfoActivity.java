@@ -19,6 +19,10 @@ public class AddStudentInfoActivity extends Activity {
     String[] majorNames={"Computer Applications","Computer Networks","Mobile Internet Development","Web Front-End Development"};
     Spinner major;
     Button butAdd,butClear;
+
+    public StudentInfoDao studentInfoDao;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +81,7 @@ public class AddStudentInfoActivity extends Activity {
             return;
         }
         //create dao object
-        StudentInfoDao studentInfoDao=new StudentInfoDao(this);
+        studentInfoDao=new StudentInfoDao(this);
         List<StudentInfo> studentInfos = studentInfoDao.GetStudentByStudentID(stuID);
         if(!studentInfos.isEmpty()){
             Toast.makeText(this, "Student ID already exists", Toast.LENGTH_LONG).show();
