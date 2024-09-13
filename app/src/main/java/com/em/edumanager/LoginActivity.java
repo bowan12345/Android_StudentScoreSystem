@@ -1,7 +1,9 @@
 package com.em.edumanager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -161,8 +163,30 @@ public class LoginActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_exit) {
-			return true;
+			//chose exit action
+			AlertDialog.Builder buidler=new AlertDialog.Builder(this);
+			buidler.setTitle("Tips");
+			buidler.setMessage("Are you sure you want to exit?");
+			//yes button
+			buidler.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					finish();
+					Log.d("MainActivity", "Exit confirmed from action bar");
+				}
+			});
+			//cancel button
+			buidler.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					Log.d("MainActivity", "Exit canceled from action bar");
+					return;
+				}
+			});
+			buidler.create().show();
 		}
+
 		return super.onOptionsItemSelected(item);
 	}
 }

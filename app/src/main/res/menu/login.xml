@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.em.edumanager.loginActivity" >
+    tools:context="com.em.edumanager.LoginActivity" >
 	<item
         android:id="@+id/action_exit"
         android:orderInCategory="100"

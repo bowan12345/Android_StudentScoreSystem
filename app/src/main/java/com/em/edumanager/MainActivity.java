@@ -155,7 +155,7 @@ public class MainActivity extends Activity {
 			AlertDialog.Builder buidler=new AlertDialog.Builder(this);
 			buidler.setTitle("Tips");
 			buidler.setMessage("Are you sure you want to exit?");
-			//确定按钮
+			//yes button
 			buidler.setPositiveButton("Yes", new OnClickListener() {
 
 				@Override
