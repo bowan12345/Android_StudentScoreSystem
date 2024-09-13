@@ -2,6 +2,7 @@ package com.em.edumanager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,7 @@ public class ShowStudentInfoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 ShowAllStudentInfo();
+                Log.d("ShowStudentInfoActivity", "Show All Students button clicked");
             }
         });
 
@@ -41,6 +43,7 @@ public class ShowStudentInfoActivity extends Activity {
             public void onClick(View v) {
                 String num=stuIDEdit.getText().toString();
                 ShowStudentByID(num);
+                Log.d("ShowStudentInfoActivity", "Query Student by ID button clicked");
             }
         });
 
@@ -53,10 +56,11 @@ public class ShowStudentInfoActivity extends Activity {
                 String studentID=studentInfo.getStudentID();
                 //show student info
                 ShowStudentDetailsByID(studentID);
+                Log.d("ShowStudentInfoActivity", "Student item clicked: " + studentID);
             }
         });
 
-
+        Log.d("ShowStudentInfoActivity", "Page initialized");
     }
 
     private void ShowStudentDetailsByID(String studentID) {
@@ -64,6 +68,7 @@ public class ShowStudentInfoActivity extends Activity {
         List<StudentInfo> studentInfos = studentInfoDao.GetStudentByStudentID(studentID);
         if(studentInfos.isEmpty()){
             Toast.makeText(this, "Student Info Not Found", Toast.LENGTH_SHORT).show();
+            Log.d("ShowStudentInfoActivity", "Student Info Not Found: " + studentID);
             return;
         }
         StudentInfo studentInfo=studentInfos.get(0);
@@ -71,6 +76,7 @@ public class ShowStudentInfoActivity extends Activity {
         Intent intent=new Intent(this,StudentDetailsActivity.class);
         intent.putExtra("studentInfo",studentInfo);
         startActivity(intent);
+        Log.d("ShowStudentInfoActivity", "Forward to StudentDetailsActivity: " + studentID);
     }
 
     /*
@@ -81,6 +87,7 @@ public class ShowStudentInfoActivity extends Activity {
         this.butQuery=findViewById(R.id.showQuery);
         this.stuIDEdit=findViewById(R.id.studentIDQuery);
         this.studentListView=findViewById(R.id.studentListView);
+        Log.d("ShowStudentInfoActivity", "Fields initialized");
     }
     /**
      *query all students info method
@@ -92,6 +99,7 @@ public class ShowStudentInfoActivity extends Activity {
         studentInfoList=studentDao.GetAllStudentInfo();
         //get student info and return ArrayAdapter
         assignStudentInfo();
+        Log.d("ShowStudentInfoActivity", "All students info queried");
     }
     /**
      *single query by student id
@@ -102,6 +110,7 @@ public class ShowStudentInfoActivity extends Activity {
         studentInfoList=studentDao.GetStudentByStudentID(studentID);
         //get student info and return ArrayAdapter
         assignStudentInfo();
+        Log.d("ShowStudentInfoActivity", "Student info queried by ID: " + studentID);
     }
 
     private void assignStudentInfo() {
@@ -118,6 +127,7 @@ public class ShowStudentInfoActivity extends Activity {
         // set up height of  ListView
         this.studentListView.setAdapter(adapter);
         setListViewHeightBasedOnItems(studentListView);
+        Log.d("ShowStudentInfoActivity", "Student info assigned to ListView");
     }
 
 
@@ -141,6 +151,7 @@ public class ShowStudentInfoActivity extends Activity {
         params.height = Math.max(desiredHeight, 200); //
         listView.setLayoutParams(params);
         listView.requestLayout();
+        Log.d("ShowStudentInfoActivity", "ListView height adjusted based on items");
     }
 
 

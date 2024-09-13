@@ -2,6 +2,7 @@ package com.em.edumanager;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +13,7 @@ import com.em.edumanager.bean.UserInfo;
 import com.em.edumanager.dao.UserDao;
 
 public class RegisterActivity extends Activity {
-    //declare fields
+	//declare fields
 	EditText firstname,lastname,email, password, rePassword;
 	Button butsave;
 	@Override
@@ -22,10 +23,11 @@ public class RegisterActivity extends Activity {
 		this.init();
 		//save button listener
 		this.butsave.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				SaveAction();
+				Log.d("RegisterActivity", "Save button clicked");
 			}
 		});
 	}
@@ -37,43 +39,48 @@ public class RegisterActivity extends Activity {
 		password=findViewById(R.id.passwordText);
 		rePassword=findViewById(R.id.rePasswordText);
 		butsave=findViewById(R.id.registerSave);
+		Log.d("RegisterActivity", "Page initialized");
 	}
 	/**
 	 * save method
 	 */
 	public void SaveAction(){
-		        //get user info by inputs
-				String firstname=this.firstname.getText().toString();
-				String lastname=this.lastname.getText().toString();
-				String email=this.email.getText().toString();
-				String password=this.password.getText().toString();
-				String rePassword=this.rePassword.getText().toString();
-				//if name or password are empty
-				if(firstname.isEmpty() || lastname.isEmpty() ||email.isEmpty() ||password.isEmpty() || rePassword.isEmpty()){
-					Toast.makeText(this,"Please Enter Username and Password",Toast.LENGTH_LONG).show();
-					return;
-				}
-				//The passwords do not match
-				if(!password.equals(rePassword)){
-					Toast.makeText(this,"The passwords do not match",Toast.LENGTH_LONG).show();
-					return;
-				}
-				// add new user into database
-				UserInfo userInfo = new UserInfo();
-				userInfo.setFirstname(firstname.toLowerCase());
-				userInfo.setLastname(lastname.toLowerCase());
-				userInfo.setEmail(email);
-				userInfo.setPassword(password);
-				UserDao userDao=new UserDao(this);
-				long n=userDao.AddUser(userInfo);
-				if(n>0){
-					//New user registration successful
-					Toast.makeText(this,"New user registration successful",Toast.LENGTH_LONG).show();
-		    		this.finish();
-				}else{
-					//New user registration failed
-					Toast.makeText(this,"New user registration failed",Toast.LENGTH_LONG).show();
-				}
+		//get user info by inputs
+		String firstname=this.firstname.getText().toString();
+		String lastname=this.lastname.getText().toString();
+		String email=this.email.getText().toString();
+		String password=this.password.getText().toString();
+		String rePassword=this.rePassword.getText().toString();
+		//if name or password are empty
+		if(firstname.isEmpty() || lastname.isEmpty() ||email.isEmpty() ||password.isEmpty() || rePassword.isEmpty()){
+			Toast.makeText(this,"Please Enter Username and Password",Toast.LENGTH_LONG).show();
+			Log.d("RegisterActivity", "Username or password is empty");
+			return;
+		}
+		//The passwords do not match
+		if(!password.equals(rePassword)){
+			Toast.makeText(this,"The passwords do not match",Toast.LENGTH_LONG).show();
+			Log.d("RegisterActivity", "Passwords do not match");
+			return;
+		}
+		// add new user into database
+		UserInfo userInfo = new UserInfo();
+		userInfo.setFirstname(firstname.toLowerCase());
+		userInfo.setLastname(lastname.toLowerCase());
+		userInfo.setEmail(email);
+		userInfo.setPassword(password);
+		UserDao userDao=new UserDao(this);
+		long n=userDao.AddUser(userInfo);
+		if(n>0){
+			//New user registration successful
+			Toast.makeText(this,"New user registration successful",Toast.LENGTH_LONG).show();
+			Log.d("RegisterActivity", "New user registration successful: " + firstname + " " + lastname);
+			this.finish();
+		}else{
+			//New user registration failed
+			Toast.makeText(this,"New user registration failed",Toast.LENGTH_LONG).show();
+			Log.d("RegisterActivity", "New user registration failed: " + firstname + " " + lastname);
+		}
 	}
 	/**
 	 * clear method
@@ -84,6 +91,7 @@ public class RegisterActivity extends Activity {
 		this.email.setText("");
 		this.password.setText("");
 		this.rePassword.setText("");
+		Log.d("RegisterActivity", "Form reset");
 	}
 
 	@Override
@@ -98,3 +106,4 @@ public class RegisterActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 }
+

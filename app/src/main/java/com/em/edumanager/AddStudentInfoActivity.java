@@ -1,6 +1,7 @@
 package com.em.edumanager;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -78,6 +79,7 @@ public class AddStudentInfoActivity extends Activity {
         String stuID=this.stuID.getText().toString();
         if(stuID.isEmpty()){
             Toast.makeText(this, "Please input student ID", Toast.LENGTH_LONG).show();
+            Log.d("AddStudentInfo", "Student ID is empty");
             return;
         }
         //create dao object
@@ -85,16 +87,19 @@ public class AddStudentInfoActivity extends Activity {
         List<StudentInfo> studentInfos = studentInfoDao.GetStudentByStudentID(stuID);
         if(!studentInfos.isEmpty()){
             Toast.makeText(this, "Student ID already exists", Toast.LENGTH_LONG).show();
+            Log.d("AddStudentInfo", "Student ID already exists: " + stuID);
             return;
         }
         String firstname=this.firstname.getText().toString();
         String lastname=this.lastname.getText().toString();
         if(firstname.isEmpty()){
             Toast.makeText(this, "Please input first name", Toast.LENGTH_LONG).show();
+            Log.d("AddStudentInfo", "First name is empty");
             return;
         }
         if(lastname.isEmpty()){
             Toast.makeText(this, "Please input last name", Toast.LENGTH_LONG).show();
+            Log.d("AddStudentInfo", "Last name is empty");
             return;
         }
         String gender="Male";
@@ -122,6 +127,7 @@ public class AddStudentInfoActivity extends Activity {
             mes="Add Student Information successfully";
         }
         Toast.makeText(this, mes, Toast.LENGTH_LONG).show();
+        Log.d("AddStudentInfo", mes);
     }
     //clear button
     public void clearAction(){
@@ -133,6 +139,7 @@ public class AddStudentInfoActivity extends Activity {
         //set default dropbox
         this.major.setSelection(0);
         this.remarks.setText("");
+        Log.d("AddStudentInfo", "Form cleared");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

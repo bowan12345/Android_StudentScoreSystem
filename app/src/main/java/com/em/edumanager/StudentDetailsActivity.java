@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +36,7 @@ public class StudentDetailsActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 updateAction();
+                Log.d("StudentDetailsActivity", "Save button clicked");
             }
         });
 
@@ -50,18 +52,22 @@ public class StudentDetailsActivity extends Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 // Execute delete action after user confirms
                                 deleteAction();
+                                Log.d("StudentDetailsActivity", "Delete confirmed");
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // Do nothing if user cancels
+                                Log.d("StudentDetailsActivity", "Delete canceled");
                                 dialog.dismiss();
                             }
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
+                Log.d("StudentDetailsActivity", "Delete button clicked");
             }
         });
+        Log.d("StudentDetailsActivity", "Page initialized");
     }
 
     //initial all textboxes
@@ -79,6 +85,7 @@ public class StudentDetailsActivity extends Activity {
         major.setAdapter(majorAdapter);
         butSave=findViewById(R.id.saveButton);
         butDel=findViewById(R.id.deleteButton);
+        Log.d("StudentDetailsActivity", "Fields initialized");
     }
 
     /**
@@ -120,6 +127,7 @@ public class StudentDetailsActivity extends Activity {
                 break;
         }
         major.setSelection(n);
+        Log.d("StudentDetailsActivity", "Student details displayed: " + studentInfo.getStudentID());
     }
 
 
@@ -137,9 +145,11 @@ public class StudentDetailsActivity extends Activity {
         long n=studentInfoDao.DeleteById(stuID);
         if (n > 0) {
             Toast.makeText(this, "Student information deleted successfully", Toast.LENGTH_SHORT).show();
+            Log.d("StudentDetailsActivity", "Student information deleted: " + stuID);
             finish();
         } else {
             Toast.makeText(this, "Failed to delete student information", Toast.LENGTH_SHORT).show();
+            Log.d("StudentDetailsActivity", "Failed to delete student information: " + stuID);
         }
     }
 
@@ -153,10 +163,12 @@ public class StudentDetailsActivity extends Activity {
         String lastName=lastname.getText().toString();
         if(firName.isEmpty()){
             Toast.makeText(this, "Please input first name", Toast.LENGTH_LONG).show();
+            Log.d("StudentDetailsActivity", "First name is empty");
             return;
         }
         if(lastName.isEmpty()){
             Toast.makeText(this, "Please input last name", Toast.LENGTH_LONG).show();
+            Log.d("StudentDetailsActivity", "Last name is empty");
             return;
         }
         String age=this.age.getText().toString();
@@ -174,9 +186,11 @@ public class StudentDetailsActivity extends Activity {
         //return result
         if (n > 0) {
             Toast.makeText(this, "Student information updated successfully", Toast.LENGTH_SHORT).show();
+            Log.d("StudentDetailsActivity", "Student information updated: " + stuID);
             finish();
         } else {
             Toast.makeText(this, "Failed to update student information", Toast.LENGTH_SHORT).show();
+            Log.d("StudentDetailsActivity", "Failed to update student information: " + stuID);
         }
     }
 
