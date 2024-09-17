@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.StudentScoreManagement" parent="Base.Theme.StudentScoreManagement"/>
+
+    <style name="Theme.StudentScoreManagement.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

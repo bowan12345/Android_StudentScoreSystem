@@ -1,5 +1,7 @@
 package com.em.edumanager;
 
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,21 +16,36 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.em.edumanager.R.*;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 	//declare fields
 	GridView gridView;
+	Toolbar toolbar ;
+	DrawerLayout drawerLayout;
+	NavigationView navigationView;
 	//declare menus
 	String[] title=new String[]{"ADD STUDENT ","MAINTAIN STUDENT","ADD GRADES","MAINTAIN GRADES","SYSTEM","HELP GUIDE","EXIT"};
 	//menu images
 	int[] image=new int[]{R.drawable.addinfo,R.drawable.showinfo,R.drawable.addscore,
 			R.drawable.showscore,R.drawable.userpass,R.drawable.help,R.drawable.exit};
 	ArrayList<Map<String,Object>> menuList;
+	@SuppressLint("MissingInflatedId")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,6 +76,17 @@ public class MainActivity extends Activity {
 			}
 		});
 		Log.d("MainActivity", "Page initialized");
+
+		//navigation drawer
+		toolbar = findViewById(R.id.topAppBar);
+		drawerLayout = findViewById(R.id.drawerLayout);
+		navigationView = findViewById(R.id.navView);
+		setSupportActionBar(toolbar);
+		ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
+		drawerLayout.addDrawerListener(drawerToggle);
+		drawerToggle.syncState();
+		navigationView.setNavigationItemSelectedListener(this);
+
 	}
 	/**
 	 *menu action
@@ -176,6 +204,26 @@ public class MainActivity extends Activity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
+		int id = menuItem.getItemId();
+		if (id == R.id.add_info_menu_item) {
+			//add student info
+			Intent studentInfoIntent=new Intent(this,AddStudentInfoActivity.class);
+			startActivity(studentInfoIntent);
+		} else if (id == R.id.add_score_menu_item) {
+			Toast.makeText(this, "See You Soon~~", Toast.LENGTH_SHORT).show();
+		} else if (id == R.id.password_menu_item) {
+			Toast.makeText(this, "See You Soon~~", Toast.LENGTH_SHORT).show();
+		} else if (id == R.id.exit_menu_item) {
+			ExitAction();
+		}else {
+			Toast.makeText(this, " See You Soon~~", Toast.LENGTH_SHORT).show();
+		}
+		drawerLayout.closeDrawer(GravityCompat.START);
+		return true;
 	}
 }
 
