@@ -217,9 +217,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 			Intent studentInfoIntent=new Intent(this,AddStudentInfoActivity.class);
 			startActivity(studentInfoIntent);
 		} else if (id == R.id.add_score_menu_item) {
-			Toast.makeText(this, "See You Soon~~", Toast.LENGTH_SHORT).show();
+			//add student grades
+			Intent addGradeIntent=new Intent(this,AddStudentGradeActivity.class);
+			startActivity(addGradeIntent);
 		} else if (id == R.id.password_menu_item) {
-			Toast.makeText(this, "See You Soon~~", Toast.LENGTH_SHORT).show();
+			//system management
+			Intent modifyPasswordIntent=new Intent(this,ModifyPasswordActivity.class);
+			startActivity(modifyPasswordIntent);
 		} else if (id == R.id.exit_menu_item) {
 			ExitAction();
 		}else {
