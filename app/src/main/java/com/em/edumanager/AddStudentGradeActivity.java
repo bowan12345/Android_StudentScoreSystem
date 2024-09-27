@@ -84,7 +84,7 @@ public class AddStudentGradeActivity extends Activity {
         StudentInfoDao studentInfoDao=new StudentInfoDao(this);
         studentInfos=studentInfoDao.GetStudentByStudentID(studentID);
         //2.get first item
-        if(studentInfos == null){
+        if(studentInfos.size()==0){
             Toast.makeText(this, "No student found", Toast.LENGTH_LONG).show();
             return;
         }

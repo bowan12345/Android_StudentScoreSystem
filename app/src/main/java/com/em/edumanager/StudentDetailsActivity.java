@@ -12,6 +12,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.em.edumanager.bean.StudentInfo;
+import com.em.edumanager.dao.StudentGradeDao;
 import com.em.edumanager.dao.StudentInfoDao;
 
 public class StudentDetailsActivity extends Activity {
@@ -143,13 +144,19 @@ public class StudentDetailsActivity extends Activity {
         //delete from database
         StudentInfoDao studentInfoDao=new StudentInfoDao(this);
         long n=studentInfoDao.DeleteById(stuID);
-        if (n > 0) {
-            Toast.makeText(this, "Student information deleted successfully", Toast.LENGTH_SHORT).show();
-            Log.d("StudentDetailsActivity", "Student information deleted: " + stuID);
-            finish();
-        } else {
+        if (n < 1) {
             Toast.makeText(this, "Failed to delete student information", Toast.LENGTH_SHORT).show();
             Log.d("StudentDetailsActivity", "Failed to delete student information: " + stuID);
+            return;
+        }
+        //delete grade from database
+        StudentGradeDao gradeDao=new StudentGradeDao(this);
+        long deleted=gradeDao.DeleteById(stuID);
+        if(deleted>0){
+            Toast.makeText(this, "Student information deleted successfully", Toast.LENGTH_LONG).show();
+            finish();
+        }else {
+            Toast.makeText(this, "Failed to delete student grades", Toast.LENGTH_LONG).show();
         }
     }
 
