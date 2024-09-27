@@ -107,17 +107,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 				break;
 			case 2:
 				//add student grades
-				Log.d("MainActivity", "Add Grades menu clicked");
-				break;
-			case 3:
+				Intent addGradeIntent=new Intent(this,AddStudentGradeActivity.class);
+				startActivity(addGradeIntent);
+      			break;
+      		case 3:
 				//maintain student grades
-				Log.d("MainActivity", "Maintain Grades menu clicked");
-				break;
-			case 4:
+				Intent maintainGradeIntent=new Intent(this,ShowStudentGradeActivity.class);
+				startActivity(maintainGradeIntent);
+      			break;
+      		case 4:
 				//system management
-				Log.d("MainActivity", "System Management menu clicked");
-				break;
-			case 5:
+				Intent modifyPasswordIntent=new Intent(this,ModifyPasswordActivity.class);
+				startActivity(modifyPasswordIntent);
+      			break;
+      		case 5:
 				//help
 				AlertDialog.Builder builder0=new AlertDialog.Builder(this);
 				builder0.setTitle("User Guide");

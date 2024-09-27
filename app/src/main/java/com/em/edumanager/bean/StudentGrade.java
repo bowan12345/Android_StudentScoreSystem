@@ -1,15 +1,31 @@
 package com.em.edumanager.bean;
 
+import java.io.Serializable;
+
 /**
  * score bean
  */
-public class StudentScore {
+public class StudentGrade implements Serializable {
     private int id;
     private String studentId;
-    private String name;
+    private String firstname;
+    private String lastname;
     private String android;
     private String java;
     private String html;
+
+	public StudentGrade(String stuId, String firstName, String lastName, String android, String java, String html) {
+		this.studentId = stuId;
+		this.firstname = firstName;
+		this.lastname = lastName;
+		this.android = android;
+		this.java = java;
+		this.html = html;
+	}
+
+	public StudentGrade() {
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -17,12 +33,22 @@ public class StudentScore {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
 	public String getAndroid() {
 		return android;
 	}

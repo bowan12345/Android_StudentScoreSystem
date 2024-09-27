@@ -25,6 +25,18 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.StudentScoreManagement.NoActionBar">
         <activity
+                android:name=".ModifyPasswordActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".GradeDetailsActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".ShowStudentGradeActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".AddStudentGradeActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".StudentDetailsActivity"
                 android:exported="false"/>
         <activity
