@@ -26,6 +26,10 @@ public class AddStudentGradeActivity extends Activity {
     EditText studentIDText,androidText,javaText,htmlText;
     Button butQuery,butAdd,butClear;
     List<StudentInfo> studentInfos;//
+
+    //1.query from database
+    StudentInfoDao studentInfoDao;
+    StudentGradeDao gradeDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,8 +84,7 @@ public class AddStudentGradeActivity extends Activity {
      *
      */
     public void GetStudentIDByStudentID(String studentID){
-        //1.query from database
-        StudentInfoDao studentInfoDao=new StudentInfoDao(this);
+        studentInfoDao=new StudentInfoDao(this);
         studentInfos=studentInfoDao.GetStudentByStudentID(studentID);
         //2.get first item
         if(studentInfos.size()==0){
@@ -97,6 +100,14 @@ public class AddStudentGradeActivity extends Activity {
     public void AddGradeAction(){
         //get user info by inputs
         String stuId=studentId.getText().toString();
+        gradeDao=new StudentGradeDao(this);
+        List<StudentGrade> studentGrades=gradeDao.GetGradeByStudentID(stuId);
+        //2.remove duplicate student grade
+        if(studentGrades.size()>0){
+            Toast.makeText(this, "Student Grade Exist", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         String firstName=firstname.getText().toString();
         String lastName=lastname.getText().toString();
         String androidGrade=androidText.getText().toString();
@@ -112,7 +123,6 @@ public class AddStudentGradeActivity extends Activity {
         grade.setJava(javaGrade);
         grade.setHtml(htmlGrade);
         //add to database
-        StudentGradeDao gradeDao=new StudentGradeDao(this);
         long n=gradeDao.addStudentGrade(grade);
         //return results
         if(n>0){

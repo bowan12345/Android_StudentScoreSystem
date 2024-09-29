@@ -2,22 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="ShowStudentInfoActivityTest">
-        <State />
-      </entry>
-      <entry key="StudentDetailsActivityTest">
-        <State />
-      </entry>
       <entry key="app">
-        <State />
-      </entry>
-      <entry key="testAllQueryButton()">
         <State />
       </entry>
       <entry key="testAllViewsAreDisplayed()">
         <State />
       </entry>
+      <entry key="testAllViewsAreDisplayed() (2)">
+        <State />
+      </entry>
       <entry key="testDeleteStudentInfo()">
+        <State />
+      </entry>
+      <entry key="testUpdatePassword()">
+        <State />
+      </entry>
+      <entry key="testUpdateStudentInfo()">
         <State />
       </entry>
     </value>
