@@ -5,21 +5,6 @@
       <entry key="app">
         <State />
       </entry>
-      <entry key="testAllViewsAreDisplayed()">
-        <State />
-      </entry>
-      <entry key="testAllViewsAreDisplayed() (2)">
-        <State />
-      </entry>
-      <entry key="testDeleteStudentInfo()">
-        <State />
-      </entry>
-      <entry key="testUpdatePassword()">
-        <State />
-      </entry>
-      <entry key="testUpdateStudentInfo()">
-        <State />
-      </entry>
     </value>
   </component>
 </project>

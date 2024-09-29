@@ -60,7 +60,7 @@ public class GradeDetailsActivityTest {
 
 
     @Test
-    public void testUpdateStudentInfo() {
+    public void testUpdateStudentGrade() {
 
         Intent intent = new Intent();
         StudentGrade studentGrade = new StudentGrade();
@@ -84,7 +84,7 @@ public class GradeDetailsActivityTest {
     }
 
     @Test
-    public void testDeleteStudentInfo() {
+    public void testDeleteStudentGrade() {
 
         Intent intent = new Intent();
         StudentGrade studentGrade = new StudentGrade();
