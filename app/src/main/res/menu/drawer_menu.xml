@@ -18,9 +18,9 @@
     </group>
     <item android:title="System">
         <menu android:id="@+id/communicate_menu">
-            <item android:id="@+id/password_menu_item"
-                  android:icon="@drawable/userpass"
-                  android:title="Edit"/>
+            <item android:id="@+id/map_menu_item"
+                  android:icon="@drawable/location"
+                  android:title="Location"/>
 
             <item android:id="@+id/exit_menu_item"
                   android:icon="@drawable/exit"

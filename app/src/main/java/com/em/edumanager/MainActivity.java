@@ -220,10 +220,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 			//add student grades
 			Intent addGradeIntent=new Intent(this,AddStudentGradeActivity.class);
 			startActivity(addGradeIntent);
-		} else if (id == R.id.password_menu_item) {
-			//system management
-			Intent modifyPasswordIntent=new Intent(this,ModifyPasswordActivity.class);
-			startActivity(modifyPasswordIntent);
+		}else if (id == R.id.map_menu_item) {
+			//map fragment view
+			Intent mapIntent=new Intent(this,MapsActivity.class);
+			startActivity(mapIntent);
+
 		} else if (id == R.id.exit_menu_item) {
 			ExitAction();
 		}else {

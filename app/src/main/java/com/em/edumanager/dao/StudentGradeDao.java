@@ -23,7 +23,7 @@ public class StudentGradeDao {
     String COL5="android";
     String COL6="java";
     String COL7="html";
-    //构造方法
+
     public StudentGradeDao(Context context) {
         //connecting the database
         this.myHelper = new MySqitHelper(context);
